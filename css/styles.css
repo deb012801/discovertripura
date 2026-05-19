@@ -1191,6 +1191,90 @@ ul { list-style: none; }
   .about-features { grid-template-columns: 1fr; }
 }
 
+/* ================================================================
+   HOW TO REACH SECTION
+   ================================================================ */
+.reach { background: var(--bg-2); }
+
+.reach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.reach-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.reach-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.reach-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: var(--white);
+  font-size: 1.3rem;
+}
+
+.reach-route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.reach-from {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.reach-arrow { color: var(--gold); font-size: 1rem; }
+.reach-to {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--green);
+}
+.reach-note {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  letter-spacing: 0.02em;
+}
+
+.reach-footer {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  padding: 1.25rem 2rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.reach-footer i { color: var(--green); }
+
+@media (max-width: 900px) {
+  .reach-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 480px) {
   .hero-actions { flex-direction: column; align-items: center; }
   .hero-actions .btn { width: 240px; justify-content: center; }
