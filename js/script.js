@@ -213,7 +213,7 @@ function submitEnquiry() {
   setLoading(true);
 
   const payload = {
-    access_key:   '12e2d415-0811-43ab-b09e-ad1c4518bcbd',
+    access_key:   '475c003a-9dea-42a1-8f03-287f8765caed',
     subject:      'New Tour Enquiry — Travel Tripura',
     from_name:    'Travel Tripura Website',
     name:         document.getElementById('f_name').value.trim(),
