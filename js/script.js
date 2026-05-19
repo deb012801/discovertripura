@@ -228,7 +228,7 @@ function submitEnquiry() {
     .catch(function (err) {
       setLoading(false);
       console.error('Form submission error:', err);
-      alert('Something went wrong. Please email us directly at jaydipb@gmail.com');
+      alert('Something went wrong. Please email us directly at tour@traveltripura.in');
     });
 }
 
