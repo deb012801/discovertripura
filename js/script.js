@@ -221,7 +221,6 @@ function submitEnquiry() {
     phone:        document.getElementById('f_phone').value.trim(),
     travelers:    document.getElementById('f_travelers').value,
     travel_month: document.getElementById('f_month').value,
-    budget:       document.getElementById('f_budget').value || 'Not specified',
     message:      document.getElementById('f_message').value.trim() || 'No special requests.'
   };
 
