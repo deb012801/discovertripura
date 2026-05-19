@@ -212,22 +212,37 @@ function setLoading(loading) {
 function submitEnquiry() {
   setLoading(true);
 
-  const form     = document.getElementById('bookingForm');
-  const formData = new FormData(form);
+  const payload = {
+    access_key:   '12e2d415-0811-43ab-b09e-ad1c4518bcbd',
+    subject:      'New Tour Enquiry — Travel Tripura',
+    from_name:    'Travel Tripura Website',
+    name:         document.getElementById('f_name').value.trim(),
+    email:        document.getElementById('f_email').value.trim(),
+    phone:        document.getElementById('f_phone').value.trim(),
+    travelers:    document.getElementById('f_travelers').value,
+    travel_month: document.getElementById('f_month').value,
+    budget:       document.getElementById('f_budget').value || 'Not specified',
+    message:      document.getElementById('f_message').value.trim() || 'No special requests.'
+  };
 
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(formData).toString()
+  fetch('https://api.web3forms.com/submit', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body:    JSON.stringify(payload)
   })
-    .then(function () {
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
       setLoading(false);
-      form.reset();
-      openModal();
+      if (data.success) {
+        document.getElementById('bookingForm').reset();
+        openModal();
+      } else {
+        throw new Error(data.message);
+      }
     })
     .catch(function (err) {
       setLoading(false);
-      console.error('Form submission error:', err);
+      console.error('Form error:', err);
       alert('Something went wrong. Please email us directly at tour@traveltripura.in');
     });
 }
