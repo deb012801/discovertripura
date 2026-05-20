@@ -642,6 +642,25 @@ ul { list-style: none; }
 .tl-img-half + .tl-img-half {
   border-top: 3px solid var(--white);
 }
+.tl-img-bottom-row {
+  display: flex;
+  flex-direction: row;
+  border-top: 3px solid var(--white);
+  flex: 1;
+}
+.tl-img-quarter {
+  flex: 1;
+  overflow: hidden;
+  min-height: 150px;
+}
+.tl-img-quarter img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tl-img-quarter + .tl-img-quarter {
+  border-left: 3px solid var(--white);
+}
 
 .tl-day-badge {
   position: absolute;
