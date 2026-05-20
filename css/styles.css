@@ -617,8 +617,9 @@ ul { list-style: none; }
   position: relative;
   width: 42%;
   flex-shrink: 0;
-  min-height: 300px;
+  min-height: 260px;
   height: auto;
+  align-self: flex-start;
 }
 
 @media (max-width: 768px) {
@@ -632,7 +633,7 @@ ul { list-style: none; }
 .tl-img-half {
   flex: 1;
   overflow: hidden;
-  min-height: 150px;
+  min-height: 120px;
 }
 .tl-img-half img {
   width: 100%;
@@ -651,7 +652,7 @@ ul { list-style: none; }
 .tl-img-quarter {
   flex: 1;
   overflow: hidden;
-  min-height: 150px;
+  min-height: 100px;
 }
 .tl-img-quarter img {
   width: 100%;
