@@ -625,6 +625,24 @@ ul { list-style: none; }
   .tl-card { flex-direction: column !important; }
   .tl-img { width: 100%; height: 240px; min-height: unset; }
 }
+.tl-img-double {
+  display: flex;
+  flex-direction: column;
+}
+.tl-img-half {
+  flex: 1;
+  overflow: hidden;
+  min-height: 150px;
+}
+.tl-img-half img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tl-img-half + .tl-img-half {
+  border-top: 3px solid var(--white);
+}
+
 .tl-day-badge {
   position: absolute;
   top: 1rem;
