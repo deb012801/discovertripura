@@ -620,15 +620,19 @@ ul { list-style: none; }
   min-height: 260px;
   height: auto;
   align-self: flex-start;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
   .tl-card { flex-direction: column !important; }
-  .tl-img { width: 100%; height: 240px; min-height: unset; }
+  .tl-img { width: 100%; height: 200px; min-height: unset; }
+  .tl-img-half { min-height: unset; }
+  .tl-img-quarter { min-height: unset; }
 }
 .tl-img-double {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .tl-img-half {
   flex: 1;
