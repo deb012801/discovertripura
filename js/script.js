@@ -280,26 +280,32 @@ document.addEventListener('keydown', function (e) {
 window.closeModal = closeModal;
 
 /* ================================================================
-   TRIPURA LIVE CLOCK — IST (UTC+5:30)
+   TRIPURA LIVE CLOCK — IST (UTC+5:30), manual offset calculation
    ================================================================ */
 function initTripuraClock() {
   var el = document.getElementById('tripuraClock');
   if (!el) return;
 
+  var days   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
   function tick() {
-    var now = new Date();
-    var timeStr = now.toLocaleString('en-IN', {
-      timeZone: 'Asia/Kolkata',
-      weekday: 'short',
-      day:     '2-digit',
-      month:   'short',
-      year:    'numeric',
-      hour:    '2-digit',
-      minute:  '2-digit',
-      second:  '2-digit',
-      hour12:  true
-    });
-    el.textContent = timeStr + ' IST';
+    var utc = Date.now();
+    var ist = new Date(utc + 5.5 * 3600 * 1000); // IST = UTC + 5:30
+
+    var day  = days[ist.getUTCDay()];
+    var date = pad(ist.getUTCDate());
+    var mon  = months[ist.getUTCMonth()];
+    var yr   = ist.getUTCFullYear();
+    var h24  = ist.getUTCHours();
+    var min  = pad(ist.getUTCMinutes());
+    var sec  = pad(ist.getUTCSeconds());
+    var ampm = h24 >= 12 ? 'PM' : 'AM';
+    var h12  = pad(h24 % 12 || 12);
+
+    el.textContent = day + ', ' + date + ' ' + mon + ' ' + yr + '  |  ' + h12 + ':' + min + ':' + sec + ' ' + ampm + ' IST';
   }
 
   tick();
