@@ -14,6 +14,7 @@
     initScrollReveal();
     initForm();
     initSmoothScroll();
+    initTripuraClock();
   });
 })();
 
@@ -277,3 +278,30 @@ document.addEventListener('keydown', function (e) {
 
 // Expose closeModal globally (used in HTML onclick)
 window.closeModal = closeModal;
+
+/* ================================================================
+   TRIPURA LIVE CLOCK — IST (UTC+5:30)
+   ================================================================ */
+function initTripuraClock() {
+  var el = document.getElementById('tripuraClock');
+  if (!el) return;
+
+  function tick() {
+    var now = new Date();
+    var timeStr = now.toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      weekday: 'short',
+      day:     '2-digit',
+      month:   'short',
+      year:    'numeric',
+      hour:    '2-digit',
+      minute:  '2-digit',
+      second:  '2-digit',
+      hour12:  true
+    });
+    el.textContent = timeStr + ' IST';
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
