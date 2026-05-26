@@ -338,15 +338,47 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   gap: 0.3rem;
+  flex-wrap: wrap;
 }
 .hero-clock i {
   color: var(--gold);
   font-size: 0.75rem;
 }
+.clock-sep {
+  color: rgba(255,255,255,0.5);
+}
 #tripuraClock {
   font-variant-numeric: tabular-nums;
   color: #fff;
   font-weight: 600;
+}
+.tripura-hover {
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px dotted rgba(255,255,255,0.5);
+}
+.map-popup {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.25);
+  z-index: 9999;
+}
+.map-popup iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.tripura-hover:hover .map-popup {
+  display: block;
 }
 
 .hero-actions {
