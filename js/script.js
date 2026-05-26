@@ -15,6 +15,7 @@
     initForm();
     initSmoothScroll();
     initTripuraClock();
+    initMapPopup();
   });
 })();
 
@@ -278,6 +279,45 @@ document.addEventListener('keydown', function (e) {
 
 // Expose closeModal globally (used in HTML onclick)
 window.closeModal = closeModal;
+
+/* ================================================================
+   MAP POPUP — hover to open, stays while cursor inside map,
+   closes on outside click
+   ================================================================ */
+function initMapPopup() {
+  var trigger = document.querySelector('.tripura-hover');
+  var popup   = document.querySelector('.map-popup');
+  if (!trigger || !popup) return;
+
+  var hideTimer = null;
+
+  function showPopup() {
+    clearTimeout(hideTimer);
+    popup.classList.add('visible');
+  }
+
+  function scheduleHide() {
+    hideTimer = setTimeout(function () {
+      popup.classList.remove('visible');
+    }, 180);
+  }
+
+  // Hover on "Tripura, India" text
+  trigger.addEventListener('mouseenter', showPopup);
+  trigger.addEventListener('mouseleave', scheduleHide);
+
+  // Cursor moves into the popup — cancel the hide timer
+  popup.addEventListener('mouseenter', showPopup);
+  popup.addEventListener('mouseleave', scheduleHide);
+
+  // Click anywhere outside the popup → close immediately
+  document.addEventListener('click', function (e) {
+    if (!trigger.contains(e.target) && !popup.contains(e.target)) {
+      clearTimeout(hideTimer);
+      popup.classList.remove('visible');
+    }
+  });
+}
 
 /* ================================================================
    TRIPURA LIVE CLOCK — IST (UTC+5:30), manual offset calculation

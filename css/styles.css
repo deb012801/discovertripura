@@ -377,7 +377,7 @@ ul { list-style: none; }
   border: none;
   display: block;
 }
-.tripura-hover:hover .map-popup {
+.map-popup.visible {
   display: block;
 }
 
