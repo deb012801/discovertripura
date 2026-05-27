@@ -236,6 +236,7 @@ function submitEnquiry() {
     .then(function (data) {
       setLoading(false);
       if (data.success) {
+        sendWhatsAppAlert(payload);
         document.getElementById('bookingForm').reset();
         openModal();
       } else {
@@ -247,6 +248,21 @@ function submitEnquiry() {
       console.error('Form error:', err);
       alert('Something went wrong. Please email us directly at tour@traveltripura.in');
     });
+}
+
+function sendWhatsAppAlert(p) {
+  var msg = '🌿 New Tour Enquiry - Travel Tripura\n' +
+            'Name: ' + p.name + '\n' +
+            'Email: ' + p.email + '\n' +
+            'Phone: ' + p.phone + '\n' +
+            'Travellers: ' + p.travelers + '\n' +
+            'Travel Month: ' + p.travel_month + '\n' +
+            'Hotel: ' + p.hotel_preference + '\n' +
+            'Message: ' + p.message;
+  var url = 'https://api.callmebot.com/whatsapp.php?phone=16262039750' +
+            '&text=' + encodeURIComponent(msg) +
+            '&apikey=6243153';
+  fetch(url, { mode: 'no-cors' }).catch(function () {});
 }
 
 /* ================================================================
