@@ -261,7 +261,7 @@ function sendWhatsAppAlert(p) {
             'Message: ' + p.message;
   var url = 'https://api.callmebot.com/whatsapp.php?phone=19194439752' +
             '&text=' + encodeURIComponent(msg) +
-            '&apikey=6243153';
+            '&apikey=5142180';
   fetch(url, { mode: 'no-cors' }).catch(function () {});
 }
 
