@@ -1,5 +1,5 @@
 /* ================================================================
-   DISCOVER TRIPURA — Main Script
+   DISCOVER TRIPURA - Main Script
    Form submissions are handled by Netlify Forms.
    Email notifications are configured in the Netlify dashboard.
    ================================================================ */
@@ -20,7 +20,7 @@
 })();
 
 /* ================================================================
-   NAVBAR — transparent on hero, dark + compact on scroll
+   NAVBAR - transparent on hero, dark + compact on scroll
    ================================================================ */
 function initNavbar() {
   const navbar    = document.getElementById('navbar');
@@ -48,7 +48,7 @@ function initNavbar() {
 }
 
 /* ================================================================
-   HERO SLIDER — auto-advances every 6 seconds
+   HERO SLIDER - auto-advances every 6 seconds
    ================================================================ */
 function initHeroSlider() {
   const slides = document.querySelectorAll('.hero-slide');
@@ -84,7 +84,7 @@ function initHeroSlider() {
 }
 
 /* ================================================================
-   HERO CONTENT REVEAL — fires once on load
+   HERO CONTENT REVEAL - fires once on load
    ================================================================ */
 function initHeroReveal() {
   const items = document.querySelectorAll('.reveal-up');
@@ -96,7 +96,7 @@ function initHeroReveal() {
 }
 
 /* ================================================================
-   SCROLL REVEAL — Intersection Observer on [data-reveal] elements
+   SCROLL REVEAL - Intersection Observer on [data-reveal] elements
    ================================================================ */
 function initScrollReveal() {
   if (!('IntersectionObserver' in window)) {
@@ -121,7 +121,7 @@ function initScrollReveal() {
 }
 
 /* ================================================================
-   SMOOTH SCROLL — polyfill-free via scrollIntoView
+   SMOOTH SCROLL - polyfill-free via scrollIntoView
    ================================================================ */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
@@ -138,7 +138,7 @@ function initSmoothScroll() {
 }
 
 /* ================================================================
-   BOOKING FORM — validation + EmailJS / mailto fallback
+   BOOKING FORM - validation + EmailJS / mailto fallback
    ================================================================ */
 function initForm() {
   const form      = document.getElementById('bookingForm');
@@ -216,7 +216,7 @@ function submitEnquiry() {
 
   const payload = {
     access_key:   '475c003a-9dea-42a1-8f03-287f8765caed',
-    subject:      'New Tour Enquiry — Travel Tripura',
+    subject:      'New Tour Enquiry - Travel Tripura',
     from_name:    'Travel Tripura Website',
     name:         document.getElementById('f_name').value.trim(),
     email:        document.getElementById('f_email').value.trim(),
@@ -251,7 +251,7 @@ function submitEnquiry() {
 }
 
 function sendWhatsAppAlert(p) {
-  var msg = '🌿 New Tour Enquiry - Travel Tripura\n' +
+  var msg = '?? New Tour Enquiry - Travel Tripura\n' +
             'Name: ' + p.name + '\n' +
             'Email: ' + p.email + '\n' +
             'Phone: ' + p.phone + '\n' +
@@ -259,7 +259,7 @@ function sendWhatsAppAlert(p) {
             'Travel Month: ' + p.travel_month + '\n' +
             'Hotel: ' + p.hotel_preference + '\n' +
             'Message: ' + p.message;
-  var url = 'https://api.callmebot.com/whatsapp.php?phone=16262039750' +
+  var url = 'https://api.callmebot.com/whatsapp.php?phone=19194439752' +
             '&text=' + encodeURIComponent(msg) +
             '&apikey=6243153';
   fetch(url, { mode: 'no-cors' }).catch(function () {});
@@ -297,7 +297,7 @@ document.addEventListener('keydown', function (e) {
 window.closeModal = closeModal;
 
 /* ================================================================
-   MAP POPUP — hover to open, stays while cursor inside map,
+   MAP POPUP - hover to open, stays while cursor inside map,
    closes on outside click
    ================================================================ */
 function initMapPopup() {
@@ -322,11 +322,11 @@ function initMapPopup() {
   trigger.addEventListener('mouseenter', showPopup);
   trigger.addEventListener('mouseleave', scheduleHide);
 
-  // Cursor moves into the popup — cancel the hide timer
+  // Cursor moves into the popup - cancel the hide timer
   popup.addEventListener('mouseenter', showPopup);
   popup.addEventListener('mouseleave', scheduleHide);
 
-  // Click anywhere outside the popup → close immediately
+  // Click anywhere outside the popup ? close immediately
   document.addEventListener('click', function (e) {
     if (!trigger.contains(e.target) && !popup.contains(e.target)) {
       clearTimeout(hideTimer);
@@ -336,7 +336,7 @@ function initMapPopup() {
 }
 
 /* ================================================================
-   TRIPURA LIVE CLOCK — IST (UTC+5:30), manual offset calculation
+   TRIPURA LIVE CLOCK - IST (UTC+5:30), manual offset calculation
    ================================================================ */
 function initTripuraClock() {
   var el = document.getElementById('tripuraClock');
