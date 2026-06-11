@@ -739,6 +739,23 @@
               <label for="f_message">Special Requests / Questions</label>
               <textarea id="f_message" name="message" rows="4" placeholder="Any dietary requirements, accessibility needs, special occasions, or questions..."></textarea>
             </div>
+
+            <!-- Honeypot — hidden from humans, filled by bots -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none!important;">
+
+            <!-- Human verification -->
+            <div class="form-field full captcha-field">
+              <label for="f_captcha">Human Verification <span class="req">*</span></label>
+              <div class="captcha-row">
+                <span class="captcha-question" id="captchaQuestion" aria-live="polite"></span>
+                <input type="text" id="f_captcha" name="_captcha_answer" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="Your answer" autocomplete="off">
+                <button type="button" class="captcha-refresh" id="captchaRefresh" aria-label="New question" title="New question">
+                  <i class="fas fa-sync-alt"></i>
+                </button>
+              </div>
+              <span class="field-err" id="err_captcha"></span>
+            </div>
+
             <button type="submit" class="btn btn-submit" id="submitBtn">
               <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Enquiry</span>
               <span class="btn-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>

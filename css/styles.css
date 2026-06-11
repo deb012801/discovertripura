@@ -1097,6 +1097,48 @@ ul { list-style: none; }
 }
 .field-err.visible { display: block; }
 
+/* CAPTCHA */
+.captcha-field { margin-top: 0.25rem; }
+
+.captcha-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.captcha-question {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green);
+  white-space: nowrap;
+  min-width: 11ch;
+}
+
+.captcha-row input {
+  width: 8rem;
+  flex-shrink: 0;
+}
+
+.captcha-refresh {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.captcha-refresh:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
 /* ================================================================
    SUCCESS MODAL
    ================================================================ */
