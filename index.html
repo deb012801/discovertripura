@@ -726,6 +726,18 @@
                 <span class="field-err" id="err_month"></span>
               </div>
               <div class="form-field">
+                <label for="f_contact_method">Preferred Communication Method <span class="req">*</span></label>
+                <select id="f_contact_method" name="contact_method" required>
+                  <option value="">Select method...</option>
+                  <option value="Email">Email</option>
+                  <option value="WhatsApp Call">WhatsApp Call</option>
+                  <option value="Regular Call">Regular Call</option>
+                </select>
+                <span class="field-err" id="err_contact_method"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
                 <label for="f_hotel">Hotel Preference</label>
                 <select id="f_hotel" name="hotel_preference">
                   <option value="">Select preference...</option>

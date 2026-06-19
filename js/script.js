@@ -208,8 +208,9 @@ function validateForm() {
     { id: 'f_name',      errId: 'err_name',      msg: 'Please enter your full name.' },
     { id: 'f_email',     errId: 'err_email',      msg: 'Please enter a valid email address.' },
     { id: 'f_phone',     errId: 'err_phone',      msg: 'Please enter your phone number.' },
-    { id: 'f_travelers', errId: 'err_travelers',  msg: 'Please select number of travellers.' },
-    { id: 'f_month',     errId: 'err_month',      msg: 'Please select a preferred travel month.' },
+    { id: 'f_travelers',      errId: 'err_travelers',      msg: 'Please select number of travellers.' },
+    { id: 'f_month',          errId: 'err_month',          msg: 'Please select a preferred travel month.' },
+    { id: 'f_contact_method', errId: 'err_contact_method', msg: 'Please select a preferred communication method.' },
   ];
 
   checks.forEach(function (c) {
@@ -287,8 +288,9 @@ function submitEnquiry() {
     phone:        document.getElementById('f_phone').value.trim(),
     travelers:    document.getElementById('f_travelers').value,
     travel_month: document.getElementById('f_month').value,
+    contact_method:   document.getElementById('f_contact_method').value,
     hotel_preference: document.getElementById('f_hotel').value || 'No preference',
-    message:      document.getElementById('f_message').value.trim() || 'No special requests.'
+    message:          document.getElementById('f_message').value.trim() || 'No special requests.'
   };
 
   fetch('https://api.web3forms.com/submit', {
@@ -322,6 +324,7 @@ function sendWhatsAppAlert(p) {
             'Phone: ' + p.phone + '\n' +
             'Travellers: ' + p.travelers + '\n' +
             'Travel Month: ' + p.travel_month + '\n' +
+            'Contact via: ' + p.contact_method + '\n' +
             'Hotel: ' + p.hotel_preference + '\n' +
             'Message: ' + p.message;
   var url = 'https://api.callmebot.com/whatsapp.php?phone=19194439752' +
